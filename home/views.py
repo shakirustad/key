@@ -5,7 +5,6 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 
-
 def index(request):
     query = Product.objects.all()
     categories = Category.objects.all()
@@ -26,6 +25,8 @@ def index(request):
     page = request.GET.get('page', 1)
     paginator = Paginator(query, 20)
 
+    products = []  # ✅ Define a default value before try-except
+
     try:
         products = paginator.page(page)
     except PageNotAnInteger:
@@ -33,7 +34,7 @@ def index(request):
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
     except Exception as e:
-        print(e)
+        print(f"Pagination error: {e}")  # ✅ Debugging info (check logs)
 
     context = {
         'products': products,
@@ -42,7 +43,6 @@ def index(request):
         'selected_sort': selected_sort,
     }
     return render(request, 'home/index.html', context)
-
 
 def product_search(request):
     query = request.GET.get('q', '')
