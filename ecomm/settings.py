@@ -27,16 +27,22 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = config("SECRET_KEY")
-SECRET_KEY = 'django-insecure-5$r91x#k2_00fnh!+0naf@w*(g$9y84v&6a_jb$5$3zhr2%m#3'
+# SECRET_KEY = 'django-insecure-5$r91x#k2_00fnh!+0naf@w*(g$9y84v&6a_jb$5$3zhr2%m#3'
+import os
+SECRET_KEY = os.getenv("SECRET_KEY", "your-default-fallback-key")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG")
+# DEBUG = True
+
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = ['*']
+
 
 # ALLOWED_HOSTS = []
 
 
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 # import os
 # DEBUG = os.getenv("DEBUG", "False") == "True"
 
