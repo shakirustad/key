@@ -35,7 +35,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-default-fallback-key")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hassankey.onrender.com', '127.0.0.1', 'localhost']
+
 
 
 # ALLOWED_HOSTS = []
