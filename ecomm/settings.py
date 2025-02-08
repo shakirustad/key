@@ -31,9 +31,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 import os
 SECRET_KEY = os.getenv("SECRET_KEY", "your-default-fallback-key")
 
-# DEBUG = True
+DEBUG = True
 
-DEBUG = os.getenv("DEBUG", "False") == "True"
+# DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ['hassankey.onrender.com', '127.0.0.1', 'localhost']
 
