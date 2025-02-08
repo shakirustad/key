@@ -38,6 +38,8 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+# Ensure the database connection is persistent
+DATABASES['default']['CONN_MAX_AGE'] = 600
 # DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ['hassankey.onrender.com', '127.0.0.1', 'localhost']
