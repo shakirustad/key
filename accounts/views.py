@@ -1,7 +1,7 @@
 import os
 import json
 import uuid
-import razorpay
+# import razorpay
 # from weasyprint import CSS, HTML
 from products.models import *
 from django.urls import reverse

@@ -14,8 +14,9 @@ import os
 from pathlib import Path
 from decouple import config
 # Add Render DB support if using PostgreSQL
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import dj_database_url
+
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = 'django-insecure-5$r91x#k2_00fnh!+0naf@w*(g$9y84v&6a_jb$5$3zhr2%m#3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
@@ -34,11 +36,14 @@ DEBUG = config("DEBUG")
 
 
 
-ALLOWED_HOSTS = ['https://key-h1m0.onrender.com/']
+ALLOWED_HOSTS = ['*']
+# import os
+# DEBUG = os.getenv("DEBUG", "False") == "True"
 
-# Static files settings
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+
+# # Static files settings
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
 
 
 # Application definition
